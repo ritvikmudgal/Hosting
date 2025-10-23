@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <title>jokeIt.com</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Indie+Flower&display=swap');
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       background: #daa1a1;
       padding-top: 50px;
     }
+    
     button {
       padding: 10px 20px;
       font-size: 18px;
@@ -27,14 +30,175 @@
       font-size: 20px;
       color: #333;
     }
+    .head{
+      color: rgb(88, 23, 23);
+      font-size: 100px;
+      margin-top: 30px;
+      font-family: "Dosis", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 250;
+      font-style: normal;
+        }
+
+    .bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:sticky;
+    top: 0;
+
+
+}
+html{
+    scroll-behavior: smooth;
+    override-colors: smooth;
+}
+.nav{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    margin-top: -30px;
+    margin-bottom: 30px;
+   border-bottom: 1px black solid;
+
+}
+.class{
+    background-color: #cddde5;
+}
+.nav li a{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+
+
+}
+.nav li{
+    list-style: none;
+    padding: 3px 30px;
+    
+
+}
+.styling {
+    width: 30%;
+    text-align: center;
+    justify-content: center;
+    margin-left: 50%;
+    display: flex;
+    size: -10px;
+    margin-top:-20px ;
+}
+.logo{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+}
+.logo img{
+    width: 50px;
+    display: flex;
+    border: 3px solid rgb(199, 161, 115);
+    border-radius: 50px;
+}
+.nav li a:hover{
+    text-decoration: none;
+    color: white;
+}
+#search{
+    padding: 6px;
+    
+    font-size: 18px;
+    border: 2px solid rgb(8, 31, 4);
+    border-radius: 200px;
+}
+.head2{
+      font-family: "Dosis", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      color: #1a3f51;
+      font-size: 30px;
+    }
+  .ruler{
+    width: 40%;
+    color: black;
+    border: black solid 0.5px ;
+    border-radius: 50%;
+  }
+  .joke{
+    font-family: 'Indie Flower', cursive;
+    font-size: 24px;
+    margin: 20px;
+    color: black;
+  }
+  .jokeArea{
+    background-color: #e6b7b7;
+    width: 60%;
+    margin-left: 20%;
+  }
+  .footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    padding: 20px 20px;
+    text-align: center;
+    color: black;
+}
+.form{
+    max-width: 500px;
+    margin: 4px auto;
+}
+.form-input{
+    margin: 30px 0;
+    padding: 5px 3px;
+    width: 100%;
+    font-size: 19px;
+    border: 2px solid gray;
+    border-radius: 6px;
+}
+.text{
+   text-align: center;
+   padding: 19px 5px 0px 6px
+}
   </style>
 </head>
 <body>
-  <h1>Joke It</h1>
-  <h2>Surviving a stressful day??<br>We have some jokes for you, a little lame but they work</h2>
-  <button onclick="getJoke()">Get a Joke</button>
-  <p id="joke"></p>
+  <nav class="bar background">
+  <ul class="nav overlay" >
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+      <li>Service</li>
+    <li><a href="#contact" >Contact Us</a></li>
+  </ul>
 
+</nav>
+<section>
+  <h1 class="head">Joke It.</h1>
+  <h2 class="head2">Surviving a stressful day??<br><hr class="ruler">We have some jokes for you, a little lame but they work</h2><br><br>
+  <button onclick="getJoke()">Get a Joke</button>
+  <div class="jokeArea">
+  <p id="joke" class="joke"></p>
+</div>
+</section>
+<section><br><br><br><br><br><br><br><br><br><br><br></section>
+<section class="new" id="contact">
+        <h2 class="text">Contact Us</h2>
+     <div class="form">
+        <input name="name" class="form-input" type="text"  id="text" placeholder="Enter your Name..">
+        <input name="phone" class="form-input" type="text" id="phone" placeholder="Enter your Mobile Number..">
+        <input name="email" class="form-input" type="email" id="email" placeholder="Enter your E-mail..">
+        <textarea class="form-input" name="textarea" id="textarea" rows="6" cols="20" placeholder="Why do you want to contact us "></textarea>
+        <button class="btn drk-btn">submit</button>
+        <br>
+        <br>
+     </div>  
+    </section>
+    <footer class="background">
+    <p class="footer">
+        Copyright &copy; 2030 www.Mysite.com-All rights reserved
+    </p>
+    </footer>
   <script>
     async function getJoke() {
       // calling public joke API
@@ -42,6 +206,10 @@
       const data = await response.json();
 
       document.getElementById("joke").innerText = `${data.setup}  ${data.punchline} \n HAHAHAHAHAHAHAHAA`;
+    }
+     function toggleMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      menu.classList.toggle('show');
     }
   </script>
 </body>
